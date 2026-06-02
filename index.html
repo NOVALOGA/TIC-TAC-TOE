@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XO Arena - Sophisticated Tic Tac Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="game-stage" aria-labelledby="game-title">
+      <div class="hero-panel">
+        <div>
+          <p class="eyebrow">Premium XO Arena</p>
+          <h1 id="game-title">Tic Tac Toe</h1>
+        </div>
+        <div class="status-card" aria-live="polite">
+          <span class="status-label">Turn</span>
+          <strong id="turnLabel">Player X</strong>
+        </div>
+      </div>
+
+      <div class="score-strip" aria-label="Scoreboard">
+        <div>
+          <span>Player X</span>
+          <strong id="scoreX">0</strong>
+        </div>
+        <div>
+          <span>Draws</span>
+          <strong id="scoreDraw">0</strong>
+        </div>
+        <div>
+          <span>Player O</span>
+          <strong id="scoreO">0</strong>
+        </div>
+      </div>
+
+      <div class="board-wrap">
+        <div id="board" class="board" role="grid" aria-label="Tic tac toe board">
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 1" data-cell="0"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 2" data-cell="1"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 3" data-cell="2"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 4" data-cell="3"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 5" data-cell="4"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 6" data-cell="5"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 7" data-cell="6"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 8" data-cell="7"></button>
+          <button class="cell" type="button" role="gridcell" aria-label="Cell 9" data-cell="8"></button>
+        </div>
+      </div>
+
+      <div class="message-bar" id="messageBar">Choose your settings and claim the center.</div>
+    </section>
+
+    <aside class="control-panel" aria-label="Game controls">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Controls</p>
+          <h2>Match Setup</h2>
+        </div>
+        <button class="icon-button" id="soundToggle" type="button" aria-label="Sound on" title="Toggle sound">
+          <span aria-hidden="true">♪</span>
+        </button>
+      </div>
+
+      <div class="control-group">
+        <label>Mode</label>
+        <div class="segmented" role="group" aria-label="Game mode">
+          <button class="segment active" type="button" data-mode="ai">Vs AI</button>
+          <button class="segment" type="button" data-mode="human">2 Players</button>
+        </div>
+      </div>
+
+      <div class="control-group" id="difficultyGroup">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy - Casual</option>
+          <option value="medium">Medium - Tactical</option>
+          <option value="hard" selected>Hard - Minimax</option>
+          <option value="expert">Expert - Unforgiving</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Play As</label>
+        <div class="mark-picker" role="group" aria-label="Choose your mark">
+          <button class="mark-choice active" type="button" data-player="X">X</button>
+          <button class="mark-choice" type="button" data-player="O">O</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Round Feel</label>
+        <div class="toggle-row">
+          <span>First move advantage</span>
+          <label class="switch" for="firstMoveToggle">
+            <input id="firstMoveToggle" type="checkbox" checked>
+            <span></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <span>Animated finish</span>
+          <label class="switch" for="animationToggle">
+            <input id="animationToggle" type="checkbox" checked>
+            <span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="action-grid">
+        <button class="primary-action" id="newRound" type="button">New Round</button>
+        <button class="secondary-action" id="resetScore" type="button">Reset Score</button>
+      </div>
+
+      <div class="stats-panel">
+        <div>
+          <span>AI read</span>
+          <strong id="aiRead">Waiting</strong>
+        </div>
+        <div>
+          <span>Rounds</span>
+          <strong id="roundCount">0</strong>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
